@@ -1,0 +1,73 @@
+<%@page import= "Dados.Cliente" %>
+<%@page import= "Dados.BD" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<%
+     if(request.getParameter("add")!= null){
+        Cliente c = new Cliente();
+        c.setNome(request.getParameter("nome"));
+        c.setCPF(request.getParameter("CPF"));
+        c.setRG(request.getParameter("RG"));
+        c.setEmail(request.getParameter("email"));
+        c.setTelefone(request.getParameter("telefone"));
+        c.setEndereco(request.getParameter("endereco"));
+
+        
+        BD.getClientes().add(c);
+        response.sendRedirect(request.getRequestURI());
+    }
+    if (request.getParameter("del")!= null){
+        int i = Integer.parseInt(request.getParameter("i"));
+        BD.getClientes().remove(i);
+        response.sendRedirect(request.getRequestURI());
+        
+    }
+
+    %>
+
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Clientes</title>
+    </head>
+    <body>
+        
+        <h1>Clientes</h1>
+        <fieldset>
+            <legend>Adicionar</legend>
+            <form>
+                Nome:<br/><input type="text" name ="nome"/> <br/>
+                Telefone:<br/><input type="text" name ="telefone"/> <br/>
+                Email:<br/><input type="text" name ="email"/> <br/>
+                <br/><input type="submit" name="add" value="adicionar"/>
+            </form>
+        </fieldset>
+    <hr/>
+    <table border ="1">
+        
+    <tr>
+        <th> Indice </th>
+        <th> Nome </th>
+        <th> Telefone </th>
+        <th> Email </th>
+        <th> Exclusão </th>
+    </tr>          
+    
+        <%for (int i=1 ;i <BD.getClientes().size();i++){ %>
+        <tr> 
+        <td><%= i %></td>
+        <td><%= BD.getClientes().get(i).getNome() %></td>
+        <td><%= BD.getClientes().get(i).getTelefone() %></td>
+        <td><%= BD.getClientes().get(i).getEmail()%></td>
+        <td>
+            <form> 
+            <input type="hidden" name="i" value="<%= i%>"/>
+            <input type="submit" name="del" value="Excluir"/>
+            </form>
+        </td>
+        </tr>
+    </table>
+    
+    </body>
+        <% } %>
+</html>
