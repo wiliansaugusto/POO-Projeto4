@@ -33,43 +33,39 @@
 
 <html>
     <head>
-
-        
-       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-                        <title>Fornecedores</title>
-
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Fornecedores</title>
         <%@include file="WEB-INF/jspf/header.jspf" %>
-
-       
     </head>
     <body>
         <%@include file="WEB-INF/jspf/menu.jspf" %>
-
-        
-        <fieldset>
-            <legend>Adicionar Fornencedores</legend>
-            <form>
-                Nome:<br/><input type="text" name ="nome"/> <br/>
-                Razão:<br/><input type="text" name ="razao"/> <br/>
-                CNPJ:<br/><input type="text" name ="CNPJ"/> <br/>
-                Email:<br/><input type="text" name ="email"/> <br/>
-                Telefone:<br/><input type="text" name ="telefone"/> <br/>
-                Endereço:<br/><input type="text" name ="endereco"/> <br/>
-                <br/><input type="submit" name="add" value="adicionar"/>
-               
-            </form>
-        </fieldset>
-    <hr/>
-    <center><table border ="1">  
-        <tr>
-        <th> Indice </th>
-        <th> Nome </th>
-        <th> Razão </th>
-        <th> CNPJ </th>
-        <th> Email </th>  
-        <th> Telefone </th>
-        <th> Endereço </th>
-    </tr> 
+        <div class="container">
+            <fieldset>
+                <legend>Adicionar Fornecedor</legend>
+                <form>
+                    Nome:<br><input type="text" name ="nome"><br>
+                    Razão:<br><input type="text" name ="razao"><br>
+                    CNPJ:<br><input type="text" name ="CNPJ"><br>
+                    Email:<br><input type="text" name ="email"><br>
+                    Telefone:<br><input type="text" name ="telefone"><br>
+                    Endereço:<br><input type="text" name ="endereco"><br><br>
+                    <input type="submit" name="add" value="adicionar">
+                </form>
+            </fieldset>
+        </div>
+        <hr/>
+        <center>
+            <div class="container">
+            <table class="table" border="1">  
+                <tr>
+                    <th> Indice </th>
+                    <th> Nome </th>
+                    <th> Razão </th>
+                    <th> CNPJ </th>
+                    <th> Email </th>  
+                    <th> Telefone </th>
+                    <th> Endereço </th>
+                </tr> 
                
         <%for (int i=1 ;i <BD.getFornecedores().size();i++){ %>
         <tr> 
@@ -95,9 +91,9 @@
         </tr>
     <% } %>
 
-            </table></center> 
-
+            </table>
+            </div>
+        </center>
     </body>
-            <%@include file="WEB-INF/jspf/footer.jspf" %>
-
+    <%@include file="WEB-INF/jspf/footer.jspf" %>
 </html>
