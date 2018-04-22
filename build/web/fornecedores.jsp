@@ -6,15 +6,24 @@
 <!DOCTYPE html>
 <%
      if(request.getParameter("add")!= null){
-        Fornecedor c = new Fornecedor();
-        c.setNome(request.getParameter("nome"));
-        c.setRazao(request.getParameter("razao"));
-        c.setCNPJ(request.getParameter("CNPJ"));
-        c.setEmail(request.getParameter("email"));
-        c.setTelefone(request.getParameter("telefone"));
-        c.setEndereco(request.getParameter("endereco"));
-
-        BD.getFornecedores().add(c);
+        int i = Integer.parseInt(request.getParameter("i"));
+        if (i < BD.getFornecedores().size()){
+            BD.getFornecedores().get(i).setNome(request.getParameter("nome"));
+            BD.getFornecedores().get(i).setRazao(request.getParameter("razao"));
+            BD.getFornecedores().get(i).setCNPJ(request.getParameter("CNPJ"));
+            BD.getFornecedores().get(i).setEmail(request.getParameter("email"));
+            BD.getFornecedores().get(i).setTelefone(request.getParameter("telefone"));
+            BD.getFornecedores().get(i).setEndereco(request.getParameter("endereco"));
+        } else {
+            Fornecedor c = new Fornecedor();
+            c.setNome(request.getParameter("nome"));
+            c.setRazao(request.getParameter("razao"));
+            c.setCNPJ(request.getParameter("CNPJ"));
+            c.setEmail(request.getParameter("email"));
+            c.setTelefone(request.getParameter("telefone"));
+            c.setEndereco(request.getParameter("endereco"));
+            BD.getFornecedores().add(c);
+        }
         response.sendRedirect(request.getRequestURI());
     }
     if (request.getParameter("del")!=null){
@@ -22,14 +31,7 @@
         BD.getFornecedores().remove(i);
         response.sendRedirect(request.getRequestURI());
     }
-    if (request.getParameter("alt")!=null){
-        int i = Integer.parseInt(request.getParameter("i"));
-
-        response.sendRedirect(request.getRequestURI());
-
-    }
-
-    %>
+%>
 
 <html>
     <head>
@@ -42,56 +44,55 @@
         <div class="container">
             <fieldset>
                 <legend>Adicionar Fornecedor</legend>
-                <form>
-                    Nome:<br><input type="text" name ="nome"><br>
-                    Razão:<br><input type="text" name ="razao"><br>
-                    CNPJ:<br><input type="text" name ="CNPJ"><br>
-                    Email:<br><input type="text" name ="email"><br>
-                    Telefone:<br><input type="text" name ="telefone"><br>
-                    Endereço:<br><input type="text" name ="endereco"><br><br>
-                    <input type="submit" name="add" value="adicionar">
-                </form>
+                <% if (request.getParameter("alt")!=null){ 
+                    int i = Integer.parseInt(request.getParameter("i"));%>
+                    <form>
+                        Nome:<br><input type="text" name="nome" value="<%= BD.getFornecedores().get(i).getNome() %>"><br>
+                        Razão:<br><input type="text" name="razao" value="<%= BD.getFornecedores().get(i).getRazao() %>"><br>
+                        CNPJ:<br><input type="text" name="CNPJ" value="<%= BD.getFornecedores().get(i).getCNPJ() %>"><br>
+                        Email:<br><input type="text" name="email" value="<%= BD.getFornecedores().get(i).getEmail() %>"><br>
+                        Telefone:<br><input type="text" name="telefone" value="<%= BD.getFornecedores().get(i).getTelefone() %>"><br>
+                        Endereço:<br><input type="text" name="endereco" value="<%= BD.getFornecedores().get(i).getEndereco() %>"><br><br>
+                        <input type="hidden" name="i" value="<%= i %>">
+                        <input type="submit" name="add" value="salvar">
+                    </form>
+                <% } else { %>
+                    <form>
+                        Nome:<br><input type="text" name="nome"><br>
+                        Razão:<br><input type="text" name="razao"><br>
+                        CNPJ:<br><input type="text" name="CNPJ"><br>
+                        Email:<br><input type="text" name="email"><br>
+                        Telefone:<br><input type="text" name="telefone"><br>
+                        Endereço:<br><input type="text" name="endereco"><br><br>
+                        <input type="submit" name="add" value="adicionar">
+                    </form>
+                <% } %>
             </fieldset>
         </div>
-        <hr/>
+        <hr>
         <center>
             <div class="container">
-            <table class="table" border="1">  
-                <tr>
-                    <th> Indice </th>
-                    <th> Nome </th>
-                    <th> Razão </th>
-                    <th> CNPJ </th>
-                    <th> Email </th>  
-                    <th> Telefone </th>
-                    <th> Endereço </th>
-                </tr> 
-               
-        <%for (int i=1 ;i <BD.getFornecedores().size();i++){ %>
-        <tr> 
-            
-        <td><%= i %></td>
-        
-        <td><%= BD.getFornecedores().get(i).getNome() %></td>
-        <td><%= BD.getFornecedores().get(i).getRazao() %></td>
-        <td><%= BD.getFornecedores().get(i).getCNPJ() %></td>
-        <td><%= BD.getFornecedores().get(i).getEmail()%></td>
-        <td><%= BD.getFornecedores().get(i).getTelefone()%></td>
-        <td><%= BD.getFornecedores().get(i).getEndereco() %></td>
-        <td>
-         <form>
-         <input type="hidden" name="i" value="<%= i%>">
-         <input type="submit" name="del" value="Excluir" >
-         <input type="submit" name="alt" value="Alterar" >
-         </form>
-
-        </td>
-        
-        
-        </tr>
-    <% } %>
-
-            </table>
+                <table class="table" border="1">  
+                    <tr><th>Indice</th><th>Nome</th><th>Razão</th><th>CNPJ</th><th>Email</th><th>Telefone</th><th>Endereço</th></tr> 
+                    <%for (int i = 1; i < BD.getFornecedores().size(); i++){ %>
+                        <tr> 
+                            <td><%= i %></td>
+                            <td><%= BD.getFornecedores().get(i).getNome() %></td>
+                            <td><%= BD.getFornecedores().get(i).getRazao() %></td>
+                            <td><%= BD.getFornecedores().get(i).getCNPJ() %></td>
+                            <td><%= BD.getFornecedores().get(i).getEmail()%></td>
+                            <td><%= BD.getFornecedores().get(i).getTelefone()%></td>
+                            <td><%= BD.getFornecedores().get(i).getEndereco() %></td>
+                            <td>
+                            <form>
+                                <input type="hidden" name="i" value="<%= i %>">
+                                <input type="submit" name="del" value="Excluir">
+                                <input type="submit" name="alt" value="Alterar">
+                            </form>
+                            </td>
+                        </tr>
+                    <% } %>
+                </table>
             </div>
         </center>
     </body>
