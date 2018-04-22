@@ -24,6 +24,7 @@
     }
     if (request.getParameter("alt")!=null){
         int i = Integer.parseInt(request.getParameter("i"));
+
         response.sendRedirect(request.getRequestURI());
 
     }
@@ -35,14 +36,16 @@
 
         
        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        
+                        <title>Fornecedores</title>
 
-                <title>Fornecedores</title>
+        <%@include file="WEB-INF/jspf/header.jspf" %>
+
        
     </head>
     <body>
+        <%@include file="WEB-INF/jspf/menu.jspf" %>
+
         
-        <h1>Cadastro de Fornecedores</h1>
         <fieldset>
             <legend>Adicionar Fornencedores</legend>
             <form>
@@ -57,8 +60,8 @@
             </form>
         </fieldset>
     <hr/>
-    <table border ="1">    
-    <tr>
+    <center><table border ="1">  
+        <tr>
         <th> Indice </th>
         <th> Nome </th>
         <th> Razão </th>
@@ -66,12 +69,13 @@
         <th> Email </th>  
         <th> Telefone </th>
         <th> Endereço </th>
-        <th> Excluir/Alterar </th>
     </tr> 
                
         <%for (int i=1 ;i <BD.getFornecedores().size();i++){ %>
         <tr> 
+            
         <td><%= i %></td>
+        
         <td><%= BD.getFornecedores().get(i).getNome() %></td>
         <td><%= BD.getFornecedores().get(i).getRazao() %></td>
         <td><%= BD.getFornecedores().get(i).getCNPJ() %></td>
@@ -91,7 +95,9 @@
         </tr>
     <% } %>
 
-            </table>
+            </table></center> 
 
     </body>
+            <%@include file="WEB-INF/jspf/footer.jspf" %>
+
 </html>
