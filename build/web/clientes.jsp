@@ -1,5 +1,5 @@
-<%@page import="Dados.BD"%>
-<%@page import="Dados.Cliente"%>
+<%@page import= "Dados.BD" %>
+<%@page import= "Dados.Cliente"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%
@@ -86,9 +86,9 @@
                     <td><%= BD.getClientes().get(i).getTelefone()%></td>
                     <td><%= BD.getClientes().get(i).getEndereco()%></td>
                     <td>
-                        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#<%=i%>" aria-expanded="false" aria-controls="<%=i%>">
                             Expandir  </button><br>
-                        <form class="collapse" id="collapseExample">
+                        <form class="collapse" id="<%= i%>">
 
                             <input type="hidden" name="id" value="<%= i%>">
                             Nome:<br/><input type="text" name ="nome" value="<%= BD.getClientes().get(i).getNome()%>" /> <br/>
