@@ -48,7 +48,7 @@
         <div class="container">
             <h1>Cadastro de Clientes</h1>
             <fieldset>
-                <legend>Adicionar Clientes</legend>
+                <legend>Adicionar Cliente</legend>
                 <form>
                     Nome:<br/><input type="text" name ="nome"/> <br/>
                     RG:<br/><input type="text" name ="rg"/> <br/>

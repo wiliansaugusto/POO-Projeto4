@@ -42,6 +42,7 @@
     <body>
         <%@include file="WEB-INF/jspf/menu.jspf" %>
         <div class="container">
+            <h1>Cadastro de Fornecedores</h1>
             <fieldset>
                 <legend>Adicionar Fornecedor</legend>
                 <% if (request.getParameter("alt")!=null){ 
