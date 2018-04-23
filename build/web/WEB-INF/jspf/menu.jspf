@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row">
-        <h1>Controle de Cadastro</h1>
+        <h1>Controle de Cadastros</h1>
         <ul class="nav">
             <li><a class="col-sm-3 text-center btn btn-primary" href="index.jsp">Home</a></li>
             <div class="col-sm-1"></div>

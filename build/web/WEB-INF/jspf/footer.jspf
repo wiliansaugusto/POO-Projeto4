@@ -5,7 +5,7 @@
          <div class="col-lg-2 col-xs-12 text-center">
              <a href="https://github.com/supremesonicbrazil/POO-Projeto4"><i class="fa fa-github fa-2x"></i>Controle de Cadastros</a>
          </div>
-         <div class="col-lg-1 col-xs-12 text-center"></div>
+         <div class="col-lg-1 col-xs-12 text-center" style="color: white;">Integrantes:</div>
           <div class="col-lg-2 col-xs-12 text-center">
              <a href="https://github.com/Baden286"><i class="fa fa-github fa-2x"></i>Baden Damasio</a>
          </div>
