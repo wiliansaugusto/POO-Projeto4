@@ -1,5 +1,6 @@
 package Dados;
 import java.util.ArrayList;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public class BD {
     private static ArrayList<Cliente> Clientes = new ArrayList<>();
@@ -7,4 +8,11 @@ public class BD {
 
     public static ArrayList<Cliente> getClientes() { return Clientes; }
     public static ArrayList<Fornecedor> getFornecedores() { return Fornecedores; }
-}
+
+    
+    
+ 
+          
+          
+          
+          }
