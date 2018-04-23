@@ -2,9 +2,9 @@
     <div class="row">
         <h1>Controle de Cadastro</h1>
         <ul class="nav">
-            <li><a class="col-sm-3 text-center btn btn-primary" href="home.jsp">Home</a></li>
+            <li><a class="col-sm-3 text-center btn btn-primary" href="index.jsp">Home</a></li>
             <div class="col-sm-1"></div>
-            <li><a class="col-sm-4 text-center btn btn-primary" href="clientes.jsp">Clientes</a></li>
+            <li><a class="col-sm-4 text-center btn btn-primary" href="cliente.jsp">Clientes</a></li>
             <div class="col-sm-1"></div>
             <li><a class="col-sm-3 text-center btn btn-primary" href="fornecedores.jsp">Fornecedores</a></li>
         </ul>
