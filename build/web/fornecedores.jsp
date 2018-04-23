@@ -74,7 +74,7 @@
             <div class="container">
                 <table class="table" border="1">  
                     <tr><th>Indice</th><th>Nome</th><th>Razão</th><th>CNPJ</th><th>Email</th><th>Telefone</th><th>Endereço</th></tr> 
-                    <%for (int i = 1; i < BD.getFornecedores().size(); i++){ %>
+                    <%for (int i = 0; i < BD.getFornecedores().size(); i++){ %>
                         <tr> 
                             <td><%= i %></td>
                             <td><%= BD.getFornecedores().get(i).getNome() %></td>
