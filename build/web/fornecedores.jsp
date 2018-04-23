@@ -81,9 +81,9 @@
                     <td><%= BD.getFornecedores().get(i).getTelefone()%></td>
                     <td><%= BD.getFornecedores().get(i).getEndereco()%></td>
                     <td>
-                        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#<%=i%>" aria-expanded="false" aria-controls="<%=i%>">
                             Expandir  </button><br>
-                        <form class="collapse" id="collapseExample">
+                        <form class="collapse" id="<%=i%>">
                             <input type="hidden" name="id" value="<%= i%>">
                             Nome:<br/><input type="text" name ="nome" value="<%= BD.getFornecedores().get(i).getNome()%>" /> <br/>
                             Razão Social:<br/><input type="text" name ="razao" value="<%=BD.getFornecedores().get(i).getRazao()%>"/> <br/>
