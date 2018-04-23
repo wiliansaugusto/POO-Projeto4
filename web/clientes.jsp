@@ -3,10 +3,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%
-
     Cliente client = new Cliente();
     if (request.getParameter("add") != null) {
-
         client.setCPF(request.getParameter("cpf"));
         client.setEmail(request.getParameter("email"));
         client.setEndereco(request.getParameter("end"));
@@ -39,7 +37,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Cadastro Cliente</title>
+        <title>Cadastro de Clientes</title>
         <%@include file="WEB-INF/jspf/header.jspf" %>
 
     </head>
@@ -100,17 +98,12 @@
                             <input type="submit" name="del" value="Excluir" >
                             <input type="submit" name="alt" value="Alterar ">
                         </form>
-                        `
                     </td>
-
-
                 </tr>
                 <% }%>
-
             </table>
         </div>
     </center>
 </body>
 <%@include file="WEB-INF/jspf/footer.jspf" %>
-
 </html>

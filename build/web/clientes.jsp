@@ -1,12 +1,10 @@
-<%@page import= "Dados.BD" %>
-<%@page import= "Dados.Cliente"%>
+<%@page import="Dados.BD"%>
+<%@page import="Dados.Cliente"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%
-
     Cliente client = new Cliente();
     if (request.getParameter("add") != null) {
-
         client.setCPF(request.getParameter("cpf"));
         client.setEmail(request.getParameter("email"));
         client.setEndereco(request.getParameter("end"));
@@ -39,7 +37,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Cadastro Cliente</title>
+        <title>Cadastro de Clientes</title>
         <%@include file="WEB-INF/jspf/header.jspf" %>
 
     </head>
@@ -86,9 +84,9 @@
                     <td><%= BD.getClientes().get(i).getTelefone()%></td>
                     <td><%= BD.getClientes().get(i).getEndereco()%></td>
                     <td>
-                        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#<%=i%>" aria-expanded="false" aria-controls="<%=i%>">
+                        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                             Expandir  </button><br>
-                        <form class="collapse" id="<%= i%>">
+                        <form class="collapse" id="collapseExample">
 
                             <input type="hidden" name="id" value="<%= i%>">
                             Nome:<br/><input type="text" name ="nome" value="<%= BD.getClientes().get(i).getNome()%>" /> <br/>
@@ -100,17 +98,12 @@
                             <input type="submit" name="del" value="Excluir" >
                             <input type="submit" name="alt" value="Alterar ">
                         </form>
-                        `
                     </td>
-
-
                 </tr>
                 <% }%>
-
             </table>
         </div>
     </center>
 </body>
 <%@include file="WEB-INF/jspf/footer.jspf" %>
-
 </html>
