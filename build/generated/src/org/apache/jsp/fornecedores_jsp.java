@@ -172,7 +172,11 @@ public final class fornecedores_jsp extends org.apache.jasper.runtime.HttpJspBas
       out.write("                <table class=\"table\" border=\"1\">  \n");
       out.write("                    <tr><th>Indice</th><th>Nome</th><th>Razão</th><th>CNPJ</th><th>Email</th><th>Telefone</th><th>Endereço</th></tr> \n");
       out.write("                    ");
+<<<<<<< HEAD
 for (int i = 0; i < BD.getFornecedores().size(); i++){ 
+=======
+for (int i = 1; i < BD.getFornecedores().size(); i++){ 
+>>>>>>> origin/master
       out.write("\n");
       out.write("                        <tr> \n");
       out.write("                            <td>");
